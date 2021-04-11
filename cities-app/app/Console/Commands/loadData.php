@@ -38,24 +38,39 @@ class loadData extends Command
      * @return int
      */
     private $county_webs = array();
-    private $links = array();
-    public function handle()
-    {
+    private $village_webs = array();
+    public function counties(){
         $client = new Client();
         $url = 'https://www.e-obce.sk/kraj/NR.html';
 
         $page = $client->request('GET',$url);
         $body = $page->filter('#telo');
-        $body->filter('table')->filter('tr > td > a')->each(function ($a, $links){
-            array_push($this->links, $a->attr('href'));
-        });
-        foreach ($this->links as $link){
-            if(strpos($link, "/okres")!=false){
-                array_push($this->county_webs, $link);
+        $body->filter('table')->filter('tr > td > a')->each(function ($a){
+            if(strpos($a->attr('href'), "/okres")!=false){
+                array_push($this->county_webs, $a->attr('href'));
             }
-        }
+        });
+    }
+    public function cities($url){
+        $client = new Client();
+        
+        $page = $client->request('GET',$url);
+        $body = $page->filter('#telo');
+        $body->filter('table')->filter('tr > td > a')->each(function ($a){
+            if(strpos($a->attr('href'), "/obec")!=false){
+                array_push($this->village_webs, $a->attr('href'));
+            }
+        });
+    }
+    public function handle()
+    {
+        $this->counties();
         foreach ($this->county_webs as $c_web){
-            $this->info($c_web);
+            $this->cities($c_web);
         }
+        foreach($this->village_webs as $v_web){
+            $this->info($v_web);
+        }
+        
     }
 }
