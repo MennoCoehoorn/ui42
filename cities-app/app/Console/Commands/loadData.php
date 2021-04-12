@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Sunra\PhpSimple\HtmlDomParser;
 use Goutte\Client;
+use App\Models\City;
 
 class VilInfo{
     var $vil_name;
@@ -176,6 +177,23 @@ class loadData extends Command
 
         });
     }
+
+    public function insert_to_db(){
+        foreach ($this->vil_infos as $v_info){
+            $insert = [ 'vil_name' => $v_info->vil_name,
+                        'mayor_name' => $v_info->mayor_name,
+                        'address' => $v_info->address,
+                        'phone' => $v_info->phone,
+                        'fax' => $v_info->fax,
+                        'email'=> $v_info->email,
+                        'web'=> $v_info->web,
+                        'image_path' => $v_info->image_path
+                      ];
+            City::firstOrCreate($insert);
+        }
+        $this->info("Inserted into DB");
+    }
+
     public function handle()
     {
         $this->counties();
@@ -189,5 +207,6 @@ class loadData extends Command
             $this->info($this->vil_infos[$this->index]->vil_name);
             $this->index = $this->index +1;
         }
+        $this->insert_to_db();
     }
 }
