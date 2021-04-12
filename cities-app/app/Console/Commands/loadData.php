@@ -84,8 +84,22 @@ class loadData extends Command
         $body->filter('table')->filter('tr')->each(function ($tr, $url){
             $string_arry = explode(" ",$tr->text());
 
-            if((in_array("Obec",$string_arry))or(in_array("Mesto",$string_arry))){
-                $this->vil_infos[$this->index]->vil_name = $string_arry[1];
+            if(in_array("Obec",$string_arry)){
+                $v_name = "";
+                for($i = array_search("Obec",$string_arry)+1;$i<array_search("Uprav",$string_arry);$i++){
+                    $v_name = $v_name.$string_arry[$i];
+                    $v_name = $v_name." ";
+                }
+                $this->vil_infos[$this->index]->vil_name = $v_name;
+            }
+
+            if(in_array("Mesto",$string_arry)){
+                $v_name = "";
+                for($i = array_search("Mesto",$string_arry)+1;$i<array_search("Uprav",$string_arry);$i++){
+                    $v_name = $v_name.$string_arry[$i];
+                    $v_name = $v_name." ";
+                }
+                $this->vil_infos[$this->index]->vil_name = $v_name;
             }
 
             if(in_array("Primátor:",$string_arry)){
@@ -169,17 +183,11 @@ class loadData extends Command
             $this->cities($c_web);
         }
         foreach($this->village_webs as $v_web){
+            $vil_inf = new VilInfo;
+            array_push($this->vil_infos,$vil_inf);
+            $this->vil_info($v_web);
+            $this->info($this->vil_infos[$this->index]->vil_name);
+            $this->index = $this->index +1;
         }
-        $vil_inf = new VilInfo;
-        array_push($this->vil_infos,$vil_inf);
-        $this->vil_info('https://www.e-obce.sk/obec/kolarovo/kolarovo.html');
-        $this->info($this->vil_infos[0]->vil_name);
-        $this->info($this->vil_infos[0]->mayor_name);
-        $this->info($this->vil_infos[0]->address);
-        $this->info($this->vil_infos[0]->phone);
-        $this->info($this->vil_infos[0]->fax);
-        $this->info($this->vil_infos[0]->email);
-        $this->info($this->vil_infos[0]->web);
-        $this->info($this->vil_infos[0]->image_path);
     }
 }
