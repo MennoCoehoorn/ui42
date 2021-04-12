@@ -191,6 +191,7 @@ class loadData extends Command
                       ];
             City::firstOrCreate($insert);
         }
+        City::whereNull('vil_name')->delete();
         $this->info("Inserted into DB");
     }
 
