@@ -14,6 +14,7 @@ class VilInfo{
     var $fax;
     var $email;
     var $web;
+    var $image_path;
 }
 
 class loadData extends Command
@@ -51,6 +52,7 @@ class loadData extends Command
     private $village_webs = array();
     private $vil_infos = array();
     private $index = 0;
+    private $url_glob;
     public function counties(){
         $client = new Client();
         $url = 'https://www.e-obce.sk/kraj/NR.html';
@@ -76,18 +78,31 @@ class loadData extends Command
     }
     public function vil_info($url){
         $client = new Client();
-        
+        $this->url_glob = $url;
         $page = $client->request('GET',$url);
         $body = $page->filter('#telo');
-        $body->filter('table')->filter('tr')->each(function ($tr){
+        $body->filter('table')->filter('tr')->each(function ($tr, $url){
             $string_arry = explode(" ",$tr->text());
 
             if((in_array("Obec",$string_arry))or(in_array("Mesto",$string_arry))){
                 $this->vil_infos[$this->index]->vil_name = $string_arry[1];
             }
 
-            if((in_array("Primátor:",$string_arry))or(in_array("Starosta:",$string_arry))){
-                $name = "{$string_arry[1]} {$string_arry[2]}";
+            if(in_array("Primátor:",$string_arry)){
+                $name = "";
+                for($i = array_search("Primátor:",$string_arry)+1;$i<count($string_arry);$i++){
+                    $name = $name.$string_arry[$i];
+                    $name = $name." ";
+                }
+                $this->vil_infos[$this->index]->mayor_name = $name;
+            }
+
+            if(in_array("Starosta:",$string_arry)){
+                $name = "";
+                for($i = array_search("Starosta:",$string_arry)+1;$i<count($string_arry);$i++){
+                    $name = $name.$string_arry[$i];
+                    $name = $name." ";
+                }
                 $this->vil_infos[$this->index]->mayor_name = $name;
             }
 
@@ -137,6 +152,13 @@ class loadData extends Command
                 $this->vil_infos[$this->index]->web = $web;
                 $this->vil_infos[$this->index]->address = $this->vil_infos[$this->index]->address.$address2;
             }
+            
+            $img_path = "/img";
+            $img_path = $img_path."/";
+            $url_array = explode("/",$this->url_glob);
+            $img_path = $img_path.$url_array[array_search("obec",$url_array)+1];
+            $img_path = $img_path.".png";
+            $this->vil_infos[$this->index]->image_path = $img_path;
 
         });
     }
@@ -158,5 +180,6 @@ class loadData extends Command
         $this->info($this->vil_infos[0]->fax);
         $this->info($this->vil_infos[0]->email);
         $this->info($this->vil_infos[0]->web);
+        $this->info($this->vil_infos[0]->image_path);
     }
 }
