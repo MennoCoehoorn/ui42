@@ -3,7 +3,8 @@ Ako nainštalovať projekt:
 -v env si zmeniť údaje na vlastnú db
 -spustiť npm install
 -spustiť composer install
--spustiť migráciu
+-spustiť php artisan migrate
+-spustiť php artisan data:import
 
 Ako spustiť projekt:
 -v konzole dať php artisan serve a cez prehliadač otvoriť danú ip
