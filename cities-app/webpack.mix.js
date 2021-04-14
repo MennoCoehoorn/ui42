@@ -16,4 +16,6 @@ mix.js('resources/js/app.js', 'public/js')
         //
     ]).sass('resources/sass/landing.scss', 'public/css')
     .sass('resources/sass/nav_foot.scss', 'public/css')
-    .sass('resources/sass/detail.scss', 'public/css');
+    .sass('resources/sass/detail.scss', 'public/css')
+    .sass('resources/sass/bonus.scss', 'public/css')
+    .sass('resources/sass/all_cities.scss', 'public/css');

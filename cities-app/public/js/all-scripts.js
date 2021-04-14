@@ -95,3 +95,22 @@ function autocomplete(inp, arr) {
       closeAllLists(e.target);
   });
   }
+
+  function set_up_btns(num){
+    for (i = 0; i < 4; i++) {
+      var id = "btn"+String(i);
+      console.log(id)
+      var btn = document.getElementById(id);
+      if(i==num){
+        btn.addEventListener('click', function(){
+          document.getElementById('result').innerHTML = "Správne";
+          this.style.backgroundColor="#32a852"
+        })
+      }else{
+        btn.addEventListener('click', function(){
+          document.getElementById('result').innerHTML = "Nesprávne";
+          this.style.backgroundColor="#b52f2f"
+        })
+      }
+    }
+  }

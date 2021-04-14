@@ -1,7 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
+    "/css/all_cities.css": "/css/all_cities.css",
+    "/css/bonus.css": "/css/bonus.css",
     "/css/detail.css": "/css/detail.css",
     "/css/nav_foot.css": "/css/nav_foot.css",
-    "/css/landing.css": "/css/landing.css"
+    "/css/landing.css": "/css/landing.css",
+    "/css/app.css": "/css/app.css"
 }

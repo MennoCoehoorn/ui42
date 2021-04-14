@@ -3,7 +3,7 @@
     <div class="container">
         <section id="top_row" class="row">
             <div class="col-md-1 col-4">
-                <img src="/img/logo.png" alt="logo">
+                <a href="/"><img src="/img/logo.png" alt="logo"></a>
             </div>
             <div class="col-md-2 offset-md-4 col-4 offset-3">
                 <a href="">Kontakty a čísla na oddelenia</a>
@@ -35,7 +35,7 @@
                         <a class="nav-link" href="#">O nás</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Zoznam miest</a>
+                        <a class="nav-link" href="/all">Zoznam miest</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Inšpekcia</a>

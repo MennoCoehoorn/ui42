@@ -1,0 +1,32 @@
+h1, h4 {
+  font-weight: 100;
+  color: #545454;
+  margin-bottom: 25px;
+}
+
+#quiz {
+  background-color: #f8f8f8;
+  padding: 50px;
+  min-height: 350px;
+  margin-bottom: 100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#quiz img {
+  height: 250px;
+  width: 200px;
+}
+#quiz .btn-primary {
+  width: 220px;
+}
+
+.card {
+  background-color: #f8f8f8;
+  border: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+ul li {
+  margin: 10px;
+}
