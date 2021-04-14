@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LandingController;
+use App\Http\Controllers\CityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +14,5 @@ use App\Http\Controllers\LandingController;
 |
 */
 
-Route::get('/', [LandingController::class, 'index']);
+Route::get('/', [CityController::class, 'index']);
+Route::get('/city/{id}',[CityController::class, 'detail']);

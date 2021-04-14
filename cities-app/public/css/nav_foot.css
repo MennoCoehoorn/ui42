@@ -1,0 +1,56 @@
+nav {
+  margin-top: 35px;
+}
+nav div a {
+  color: #0b82f1;
+  font-size: x-small;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+nav div option {
+  color: #aaa6a6;
+}
+nav div select {
+  color: #aaa6a6;
+  border: 0px;
+}
+nav div #login_btn {
+  background-color: #07d3aa;
+  color: white;
+}
+nav div.input-group-append span {
+  background-color: white;
+  border-left: 0px;
+}
+nav div.input-group input {
+  border-right: 0px;
+}
+nav .navbar li a {
+  color: black;
+  font-size: large;
+}
+
+#foot {
+  background-color: #dfdfdf;
+  padding-right: 150px;
+  padding-left: 150px;
+  color: #545454;
+}
+#foot ul {
+  list-style-type: none;
+}
+#foot ul li:first-child {
+  font-weight: bold;
+}
+#foot ul li > a {
+  color: #545454;
+}
+#foot ul:first-child li {
+  font-size: smaller;
+}
+#foot #alert_sys li {
+  color: #0b82f1;
+}
+#foot #alert_sys li a {
+  color: #0b82f1;
+}

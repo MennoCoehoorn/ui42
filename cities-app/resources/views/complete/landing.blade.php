@@ -10,6 +10,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
         <link rel="stylesheet" href="/css/landing.css">
+        <link rel="stylesheet" href="/css/nav_foot.css">
         <script type="text/javascript" src="/js/all-scripts.js"></script>
         <title>Effective Cleaning and Gardening</title>
     </head>

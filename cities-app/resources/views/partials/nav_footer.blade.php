@@ -2,19 +2,19 @@
 <nav>
     <div class="container">
         <section id="top_row" class="row">
-            <div class="col-sm-1">
+            <div class="col-md-1 col-4">
                 <img src="/img/logo.png" alt="logo">
             </div>
-            <div class="col-sm-2 offset-sm-4">
+            <div class="col-md-2 offset-md-4 col-4 offset-3">
                 <a href="">Kontakty a čísla na oddelenia</a>
             </div>
-            <div class="col-sm-1">
+            <div class="col-1">
                 <select name="" id="">
                     <option value="">SK</option>
                     <option value="">EN</option>
                 </select>
             </div>
-            <div class="col-sm-2">
+            <div class="col-md-2 col-8">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="">
                     <div class="input-group-append">
@@ -24,12 +24,12 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="col-1">
                 <button type="button" class="btn" id="login_btn">Prihlásenie</button>
             </div>
         </section>
         <section id="bottom_row" class="row">
-            <div class="navbar navbar-expand-lg col-sm-12">
+            <div class="navbar navbar-expand-md col-sm-12">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="#">O nás</a>
@@ -52,7 +52,7 @@
 <footer>
     <section class="container-fluid py-5" id="foot">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-md-3">
                 <div class="row">
                     <ul>
                         <li>ADRESA A KONTAKT</li>
@@ -82,7 +82,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-md-3">
                 <ul>
                     <li>O NÁS</li>
                     <li><a href="#">Dotazníky</a></li>
@@ -106,7 +106,7 @@
                 </ul>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-md-3">
 
                 <div class = "row">
                     <ul>
@@ -134,7 +134,7 @@
 
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-md-3">
                 <div class = "row">
                     <ul>
                         <li>DROGOVÉ PREKURZORY</li>

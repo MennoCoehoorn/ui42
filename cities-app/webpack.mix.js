@@ -14,4 +14,6 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
-    ]).sass('resources/sass/landing.scss', 'public/css');
+    ]).sass('resources/sass/landing.scss', 'public/css')
+    .sass('resources/sass/nav_foot.scss', 'public/css')
+    .sass('resources/sass/detail.scss', 'public/css');
