@@ -36,7 +36,7 @@
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <div class="autocomplete" id="auto_div">
                                             <input id="vil_search" type="text" name="vil">
-                                            <button type="submit"><span class="fa fa-search"></span></button>
+                                            <button type="submit" id="send_button"></span></button>
                                         </div>
                                     </form>
                                 </td>
