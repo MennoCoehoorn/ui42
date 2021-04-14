@@ -20,11 +20,45 @@
 @endsection
 
 @section('content')
-    <section class="container-fluid" id="main_content">
-        <div class="row justify-content-center align-items-center h-75">
-            <h2 class="text-white display-3">Vyhľadať v databáze obcí</h2>
-        </div>
+    <section class="container-fluid d-flex align-items-center justify-content-center" id="main_content">
+            <div class="row d-flex justify-content-center align-items-center">
+                    
+                    <table>
+                        <thead></thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3"><h2 class="text-white display-3">Vyhľadať v databáze obcí</h2></td>
+                            </tr>
+                            <tr id="tr_form">
+                                <td class="td_filler"></td>
+                                <td id="td_form">
+                                    <form class="col-8" autocomplete="off" action="/search" method="POST">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <div class="autocomplete" id="auto_div">
+                                            <input id="vil_search" type="text" name="vil">
+                                            <button type="submit"><span class="fa fa-search"></span></button>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td class="td_filler"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+               
+                
+            </div>
     </section>
+
+    <script>
+        var vils = {!! $vils !!};
+        var vils_clear = [];
+        vils.forEach(vil=>{
+            vils_clear.push(vil.vil_name);
+        });
+        console.log(vils_clear);
+        autocomplete(document.getElementById("vil_search"), vils_clear);
+    </script>
 @endsection
 
 @section('bottom')

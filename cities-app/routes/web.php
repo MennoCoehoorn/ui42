@@ -15,4 +15,5 @@ use App\Http\Controllers\CityController;
 */
 
 Route::get('/', [CityController::class, 'index']);
-Route::get('/city/{id}',[CityController::class, 'detail']);
+Route::post('/search', [CityController::class, 'search']);
+Route::get('/city/{id}',[CityController::class, 'detail'])->name('detail');
